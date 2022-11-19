@@ -85,7 +85,7 @@ public class Deposit extends Transaction
          return CANCELED;
       else
       {
-         return new Euro(input); // return dollar amount 
+         return new Euro(0,input); // return dollar amount 
       } // end else
    } // end method promptForDepositAmount
 } // end class Deposit
