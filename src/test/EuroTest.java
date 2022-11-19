@@ -40,18 +40,21 @@ public class EuroTest
     @Test
     public void testSottrai() 
     {
- 
+        Euro temp=e.sottrai(e);
+        assertEquals(0,temp.getValore()/100);
     }
 
     @Test
     public void testStampa() 
     {
-
+        String temp=e.stampa();
+        assertEquals("20.0 euro", temp);
     }
 
     @Test
     public void testUgualeA() 
     {
-  
+        assertTrue(e.ugualeA(new Euro(20)));
+        assertEquals(e.ugualeA(new Euro(10)), false);
     }
 }
