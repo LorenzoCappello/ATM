@@ -10,51 +10,51 @@ import code.Buisness_logic.Euro;
 
 public class EuroTest
  {
-    private Euro e;
+    private Euro euro;
 
     @Before
     public void setup()
     {
-        e=new Euro(20);
+        euro=new Euro(20);
     }
 
     @Test
     public void testGetValore() 
     {
-        assertEquals(20,e.getValore()/100);
+        assertEquals(20,euro.getValore()/100);
     }
 
     @Test
     public void testMinoreDi() 
     {
-        assertTrue(e.minoreDi(new Euro(30)));
+        assertTrue(euro.minoreDi(new Euro(30)));
     }
 
     @Test
     public void testSomma() 
     {
-        Euro temp=e.somma(e);
+        Euro temp=euro.somma(euro);
         assertEquals(40,temp.getValore()/100);
     }
 
     @Test
     public void testSottrai() 
     {
-        Euro temp=e.sottrai(e);
+        Euro temp=euro.sottrai(euro);
         assertEquals(0,temp.getValore()/100);
     }
 
     @Test
     public void testStampa() 
     {
-        String temp=e.stampa();
+        String temp=euro.stampa();
         assertEquals("20.0 euro", temp);
     }
 
     @Test
     public void testUgualeA() 
     {
-        assertTrue(e.ugualeA(new Euro(20)));
-        assertEquals(e.ugualeA(new Euro(10)), false);
+        assertTrue(euro.ugualeA(new Euro(20)));
+        assertEquals(euro.ugualeA(new Euro(10)), false);
     }
 }
