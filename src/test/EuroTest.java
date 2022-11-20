@@ -13,7 +13,7 @@ public class EuroTest
     private Euro euro;
 
     @Before
-    public void setup()
+    public void setup() //setup test
     {
         euro=new Euro(20);
     }
