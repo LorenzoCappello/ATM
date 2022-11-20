@@ -1,9 +1,8 @@
 package code.Buisness_logic;
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
-
-import code.Database.BankDatabase;
-import code.GUI.Screen;
+import code.GUI.*;
+import code.Database.*;
 
 public abstract class Transaction
 {

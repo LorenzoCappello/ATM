@@ -1,11 +1,8 @@
 package code.Buisness_logic;
 // Withdrawal.java
 // Represents a withdrawal ATM transaction
-
-import code.Database.BankDatabase;
-import code.GUI.CashDispenser;
-import code.GUI.Keypad;
-import code.GUI.Screen;
+import code.GUI.*;
+import code.Database.*;
 
 public class Withdrawal extends Transaction
 {
@@ -33,7 +30,7 @@ public class Withdrawal extends Transaction
    public void execute()
    {
       boolean cashDispensed = false; // cash was not dispensed yet
-      double availableBalance; // amount available for withdrawal
+      Euro availableBalance; // amount available for withdrawal
 
       // get references to bank database and screen
       BankDatabase bankDatabase = getBankDatabase(); 
@@ -53,13 +50,13 @@ public class Withdrawal extends Transaction
                bankDatabase.getAvailableBalance( getAccountNumber() );
       
             // check whether the user has enough money in the account 
-            if ( amount <= availableBalance )
+            if ( amount <= availableBalance.getValore() )
             {   
                // check whether the cash dispenser has enough money
                if ( cashDispenser.isSufficientCashAvailable( amount ) )
                {
                   // update the account involved to reflect withdrawal
-                  bankDatabase.debit( getAccountNumber(), amount );
+                  bankDatabase.debit( getAccountNumber(), new Euro(amount) );
                   
                   cashDispenser.dispenseCash( amount ); // dispense cash
                   cashDispensed = true; // cash was dispensed
@@ -137,20 +134,3 @@ public class Withdrawal extends Transaction
       return userChoice; // return withdrawal amount or CANCELED
    } // end method displayMenuOfAmounts
 } // end class Withdrawal
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
